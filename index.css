@@ -219,6 +219,25 @@ button { font: inherit; }
   100% { transform: translateY(60px); opacity: 0; }
 }
 
+/* O destaque por toque termina ao soltar ou começar a rolar a página. */
+.motion-enabled .text-hover.is-touch-active { color: var(--text-hover-color); translate: var(--text-hover-shift, 3px 0); }
+.motion-enabled .text-hover.is-touch-active :where(em, strong, span:not([aria-hidden="true"])) { color: inherit; }
+.motion-enabled .photo-window.is-touch-active img { transform: scale(1.045); }
+.motion-enabled .intro-photo.is-touch-active figcaption, .motion-enabled .repertoire-photos figure.is-touch-active figcaption { color: var(--accent); transform: translateY(-2px); }
+.motion-enabled .formation-step.is-touch-active .formation-mark { transform: translateY(-5px); background: #ddd0bf; box-shadow: 0 12px 22px -18px rgba(35,30,25,.45); }
+.motion-enabled .service-card.is-touch-active > div { transform: translateY(-4px); }
+.motion-enabled .service-card.is-touch-active::after { opacity: 1; }
+.motion-enabled .service-card.is-touch-active .service-number::after { transform: scaleX(1); }
+.motion-enabled .service-card.is-touch-active .gold-arrow { transform: translateX(10px); }
+.motion-enabled .text-link.is-touch-active { border-color: #c3936e; }
+.motion-enabled .text-link.is-touch-active > span { transform: translateX(7px); }
+.motion-enabled .site-nav a.is-touch-active { transform: translateY(-2px); opacity: 1; }
+.motion-enabled .site-nav a.is-touch-active::after { width: 100%; }
+.motion-enabled .timeline-list li.is-touch-active .timeline-icon { transform: translateY(-4px); color: #754323; }
+.motion-enabled .process-strip article.is-touch-active > span { transform: translateY(-3px); color: #c3936e; }
+.motion-enabled .before-after article.is-touch-active { background: rgba(163,92,43,.1); }
+.motion-enabled .footer a.is-touch-active > span { transform: translateY(-3px); }
+
 @media (hover: hover) and (pointer: fine) {
   .motion-enabled .text-hover:hover { color: var(--text-hover-color); translate: var(--text-hover-shift, 3px 0); }
   .motion-enabled .text-hover:hover :where(em, strong, span:not([aria-hidden="true"])) { color: inherit; }

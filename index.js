@@ -34,6 +34,46 @@ document.querySelectorAll('a:not(.skip-link), h1, h2, h3, h4, p:not(.current-asi
   element.classList.add('text-hover');
 });
 
+// O toque mostra o mesmo destaque do hover, sem prender a rolagem ou os links.
+const touchFeedbackSelector = '.text-hover, .photo-window, .intro-photo, .repertoire-photos figure, .formation-step, .service-card, .timeline-list li, .process-strip article, .before-after article';
+let touchFeedbackElements = [];
+let touchFeedbackPointer = null;
+let touchFeedbackTimeout;
+
+function clearTouchFeedback() {
+  clearTimeout(touchFeedbackTimeout);
+  touchFeedbackElements.forEach((element) => element.classList.remove('is-touch-active'));
+  touchFeedbackElements = [];
+  touchFeedbackPointer = null;
+}
+
+document.addEventListener('pointerdown', (event) => {
+  if (event.pointerType !== 'touch' && event.pointerType !== 'pen') return;
+  clearTouchFeedback();
+  if (!event.isPrimary || !root.classList.contains('motion-enabled')) return;
+
+  touchFeedbackElements = event.composedPath().filter((element) => element instanceof Element && element.matches(touchFeedbackSelector));
+  if (!touchFeedbackElements.length) return;
+  touchFeedbackPointer = { id: event.pointerId, x: event.clientX, y: event.clientY };
+  touchFeedbackElements.forEach((element) => element.classList.add('is-touch-active'));
+}, { passive: true });
+
+document.addEventListener('pointermove', (event) => {
+  if (!touchFeedbackPointer || event.pointerId !== touchFeedbackPointer.id) return;
+  if (Math.hypot(event.clientX - touchFeedbackPointer.x, event.clientY - touchFeedbackPointer.y) > 10) clearTouchFeedback();
+}, { passive: true });
+
+document.addEventListener('pointerup', (event) => {
+  if (!touchFeedbackPointer || event.pointerId !== touchFeedbackPointer.id) return;
+  touchFeedbackPointer = null;
+  touchFeedbackTimeout = setTimeout(clearTouchFeedback, 600);
+}, { passive: true });
+
+document.addEventListener('pointercancel', clearTouchFeedback, { passive: true });
+document.addEventListener('scroll', clearTouchFeedback, { passive: true, capture: true });
+document.addEventListener('contextmenu', clearTouchFeedback, { passive: true });
+window.addEventListener('blur', clearTouchFeedback);
+
 // Sem JavaScript ou com movimento reduzido, todo o conteúdo permanece visível.
 document.querySelectorAll('.before-after > div, .before-after article, .process-strip article, .closing-quote p, .footer > *').forEach((element) => {
   element.classList.add('reveal');
@@ -84,7 +124,10 @@ function updateMotion() {
   root.classList.toggle('motion-ready', !motionPreference.matches);
   root.classList.toggle('motion-enabled', enabled);
   root.classList.toggle('page-hidden', document.hidden);
-  if (!enabled) hero.classList.remove('intro-animate');
+  if (!enabled) {
+    hero.classList.remove('intro-animate');
+    clearTouchFeedback();
+  }
 
   if (revealObserver) revealObserver.disconnect();
   if (enabled && !('IntersectionObserver' in window)) {
@@ -105,6 +148,7 @@ function updateMotion() {
 motionPreference.addEventListener('change', updateMotion);
 document.addEventListener('visibilitychange', () => {
   root.classList.toggle('page-hidden', document.hidden);
+  if (document.hidden) clearTouchFeedback();
   if (!document.hidden) requestScrollUpdate();
 });
 
