@@ -9,7 +9,7 @@
   <meta property="og:description" content="Trajetória, formação e experiência de Giovanna Dias em leitura, escrita e conteúdo digital.">
   <meta property="og:type" content="website">
   <title>Giovanna Dias — Portfólio</title>
-  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Manrope:wght@300;400;500&display=swap" rel="stylesheet">
@@ -18,27 +18,34 @@
 </head>
 <body>
   <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
+  <div class="reading-progress" aria-hidden="true"></div>
 
   <header class="site-header" id="inicio">
     <a class="brand" href="#inicio" aria-label="Giovanna Dias, início">Giovanna Dias</a>
-    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu-principal">
-      <span class="sr-only">Abrir menu</span>
-      <span></span><span></span>
-    </button>
-    <nav class="site-nav" id="menu-principal" aria-label="Navegação principal">
-      <a href="#sobre">Sobre</a>
-      <a href="#formacao">Formação</a>
-      <a href="#experiencia">Experiência</a>
-      <a href="#contato">Contato</a>
-    </nav>
+    <div class="header-actions">
+      <nav class="site-nav" id="menu-principal" aria-label="Navegação principal">
+        <a href="#sobre">Sobre</a>
+        <a href="#formacao">Formação</a>
+        <a href="#experiencia">Experiência</a>
+        <a href="#contato">Contato</a>
+      </nav>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu-principal">
+        <span class="sr-only">Abrir menu</span>
+        <span></span><span></span>
+      </button>
+    </div>
   </header>
 
   <main id="conteudo">
     <section class="hero" aria-labelledby="hero-title">
+      <figure class="hero-photo">
+        <img src="assets/fotos-reais/estante-de-livros-iluminada.png" alt="Corredor iluminado entre estantes cheias de livros" width="1672" height="941" fetchpriority="high">
+        <figcaption>Entre livros, a escrita começa.</figcaption>
+      </figure>
       <div class="hero-overlay"></div>
-      <div class="hero-content reveal">
+      <div class="hero-content">
         <p class="eyebrow light">Portfólio editorial</p>
-        <h1 id="hero-title">Giovanna Dias</h1>
+        <h1 id="hero-title">Giovanna<br>Dias<span aria-hidden="true">.</span></h1>
         <p class="hero-subtitle">Entre leitura, linguagem e escrita digital.</p>
         <p class="hero-role">Estudante de Letras — Italiano na USP<br>Estagiária em Redação SEO</p>
         <a class="text-link light-link" href="#sobre">Conheça a trajetória <span aria-hidden="true">→</span></a>
@@ -52,6 +59,10 @@
         <h2 id="intro-title">Da mediação de leitura<br>à redação para a web.</h2>
         <p class="lead italic">Minha trajetória começou entre crianças e livros. Hoje, estudo Letras na USP e transformo essa escuta atenta em textos pensados para leitores e mecanismos de busca.</p>
       </div>
+      <figure class="intro-photo reveal">
+        <div class="photo-window"><img src="assets/fotos-reais/letras-2025.jpeg" alt="Braços cruzados com as palavras Letras e 2025 pintadas em verde" width="1220" height="634" loading="lazy"></div>
+        <figcaption><span>Um registro da trajetória</span><span>Letras · 2025</span></figcaption>
+      </figure>
     </section>
 
     <section class="formation section" id="formacao" aria-labelledby="formation-title">
@@ -62,27 +73,27 @@
       <div class="formation-track">
         <article class="formation-step reveal">
           <p><strong>Letras — Italiano</strong><span>FFLCH USP</span></p>
-          <img src="assets/formacao-letras.png" alt="Vista interna do prédio da FFLCH na Universidade de São Paulo" loading="lazy">
+          <span class="formation-mark" aria-hidden="true">Aa<span>linguagem</span></span>
         </article>
         <span class="track-arrow" aria-hidden="true">→</span>
         <article class="formation-step reveal">
           <p><strong>Redação SEO</strong><span>SEO on-page</span></p>
-          <img src="assets/formacao-redacao.png" alt="Folhas de papel sobrepostas sob luz quente" loading="lazy">
+          <span class="formation-mark" aria-hidden="true">↗<span>encontrar</span></span>
         </article>
         <span class="track-arrow" aria-hidden="true">→</span>
         <article class="formation-step reveal">
           <p><strong>Revisão textual</strong><span>Gramática e clareza</span></p>
-          <img src="assets/formacao-revisao.png" alt="Página com marcas de revisão em vermelho" loading="lazy">
+          <span class="formation-mark" aria-hidden="true">¶<span>lapidar</span></span>
         </article>
         <span class="track-arrow" aria-hidden="true">→</span>
         <article class="formation-step reveal">
           <p><strong>Mercado editorial</strong><span>Edição e publicação</span></p>
-          <img src="assets/formacao-mercado.png" alt="Livros de capa dura empilhados" loading="lazy">
+          <span class="formation-mark" aria-hidden="true">&amp;<span>publicar</span></span>
         </article>
         <span class="track-arrow" aria-hidden="true">→</span>
         <article class="formation-step reveal">
           <p><strong>Storytelling</strong><span>Comunicação</span></p>
-          <img src="assets/formacao-storytelling.png" alt="Sombras de mão e folhas sobre papel" loading="lazy">
+          <span class="formation-mark" aria-hidden="true">“<span>contar</span></span>
         </article>
       </div>
     </section>
@@ -90,6 +101,7 @@
     <section class="services" aria-label="Áreas de atuação">
       <article class="service-card service-card--dark reveal">
         <div>
+          <span class="service-number" aria-hidden="true">01 /</span>
           <h2>Redação<br>SEO</h2>
           <span class="gold-arrow" aria-hidden="true">→</span>
           <p>Conteúdo para a web com técnica, intenção e leitura fluida. Textos que ajudam pessoas a encontrar respostas e marcas a serem encontradas.</p>
@@ -97,6 +109,7 @@
       </article>
       <article class="service-card service-card--review reveal">
         <div>
+          <span class="service-number" aria-hidden="true">02 /</span>
           <h2>Revisão<br>textual</h2>
           <span class="gold-arrow" aria-hidden="true">→</span>
           <p>Gramática, clareza e coerência sem apagar a voz de quem escreve. A revisão organiza o texto e aproxima a mensagem do leitor.</p>
@@ -104,6 +117,7 @@
       </article>
       <article class="service-card service-card--market reveal">
         <div>
+          <span class="service-number" aria-hidden="true">03 /</span>
           <h2>Mercado<br>editorial</h2>
           <span class="gold-arrow" aria-hidden="true">→</span>
           <p>Formação em edição, publicação e direitos autorais. Um olhar atento para o caminho do original até a circulação.</p>
@@ -118,6 +132,7 @@
         <p>Desde setembro de 2025, participo da produção de artigos e aplico técnicas de SEO on-page. O trabalho combina pesquisa, clareza e intenção de busca para aproximar conteúdo e leitor.</p>
         <p class="meta">São Paulo <span>•</span> Modelo híbrido <span aria-hidden="true">→</span></p>
       </div>
+      <p class="current-aside" aria-hidden="true"><span class="reveal">Pesquisa.</span><span class="reveal">Clareza.</span><span class="reveal"><em>Intenção.</em></span></p>
     </section>
 
     <section class="timeline section" aria-labelledby="timeline-title">
@@ -140,10 +155,28 @@
       </div>
     </section>
 
+    <section class="repertoire section" aria-labelledby="repertoire-title">
+      <div class="repertoire-heading reveal">
+        <div class="section-index"><span>07</span><i></i><small>Repertório</small></div>
+        <h2 id="repertoire-title">A leitura também acontece<br><em>fora da página.</em></h2>
+        <p>Literatura, cultura e formas de contar histórias.</p>
+      </div>
+      <div class="repertoire-photos">
+        <figure class="culture-photo reveal">
+          <div class="photo-window"><img src="assets/fotos-reais/maria-antonia.jpeg" alt="Mural vermelho do Centro Universitário Maria Antonia da USP com cartazes de exposições e cursos" width="1088" height="1600" loading="lazy"></div>
+          <figcaption><span>01 / Cultura</span>Centro Universitário Maria Antonia · USP</figcaption>
+        </figure>
+        <figure class="study-photo reveal">
+          <div class="photo-window"><img src="assets/fotos-reais/memoria-e-narrativa.jpeg" alt="Projeção de aula com o título Memória e narrativa e uma ilustração de leitura em grupo" width="1220" height="823" loading="lazy"></div>
+          <figcaption><span>02 / Leitura</span>Memória e narrativa · registro de estudo</figcaption>
+        </figure>
+      </div>
+    </section>
+
     <section class="story" aria-labelledby="story-title">
       <div class="story-hero section">
         <div class="story-copy reveal">
-          <div class="section-index section-index--light"><span>07</span><i></i><small>O caminho de um texto</small></div>
+          <div class="section-index section-index--light"><span>08</span><i></i><small>O caminho de um texto</small></div>
           <h2 id="story-title">Quando a informação<br>encontra o leitor.</h2>
           <p>Ela abre a página com uma dúvida simples. A resposta estava ali, mas escondida em um parágrafo longo, sem ordem e sem clareza. Leu duas vezes. Depois, fechou a página.</p>
           <p>O problema não era falta de informação. Era distância.</p>
