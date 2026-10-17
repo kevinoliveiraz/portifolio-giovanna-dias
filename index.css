@@ -79,6 +79,23 @@ button { font: inherit; }
 .formation-mark > span { margin-top: 13px; color: var(--muted); font: 400 9px var(--sans); letter-spacing: .12em; text-transform: uppercase; }
 .track-arrow { align-self: end; display: grid; place-items: center; height: 128px; font: 300 27px/1 var(--serif); color: #736a61; }
 
+.credentials { margin-top: 36px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.credentials summary { display: flex; align-items: center; justify-content: space-between; gap: 20px; min-height: 76px; padding: 18px 0; cursor: pointer; list-style: none; font: 400 clamp(25px, 2.5vw, 36px)/1.1 var(--serif); }
+.credentials summary::-webkit-details-marker { display: none; }
+.credentials-toggle { display: flex; align-items: center; gap: 18px; flex-shrink: 0; color: var(--muted); font: 400 10px var(--sans); }
+.credentials-toggle > span { color: var(--accent); font: 400 28px/1 var(--serif); transition: transform .35s var(--motion-ease); }
+.credentials[open] .credentials-toggle > span { transform: rotate(45deg); }
+.credentials-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 5vw; margin: 0; padding: 0 0 12px; list-style: none; }
+.credentials-list li { padding: 20px 0; border-top: 1px solid var(--line); }
+.credentials-list h3 { max-width: 480px; margin-bottom: 9px; font: 400 24px/1.1 var(--serif); }
+.credentials-list p { margin-bottom: 0; color: var(--muted); font-size: 11px; line-height: 1.6; }
+.credentials-list p span { display: block; font-size: 10px; }
+.languages { display: grid; grid-template-columns: 1fr 3fr; align-items: start; gap: 28px; margin-top: 28px; }
+.languages h3 { margin-bottom: 0; font: 400 27px/1.1 var(--serif); }
+.languages ul { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; margin: 0; padding: 0; list-style: none; }
+.languages p { margin-bottom: 0; font: 400 23px/1.1 var(--serif); }
+.languages p span { display: block; margin-top: 8px; color: var(--muted); font: 300 10px/1.4 var(--sans); }
+
 .services { display: grid; grid-template-columns: repeat(3, 1fr); min-height: 400px; }
 .service-card { position: relative; min-height: 400px; padding: 36px var(--pad) 44px; }
 .service-card::after { content: ""; position: absolute; inset: 0; pointer-events: none; }
@@ -105,10 +122,10 @@ button { font: inherit; }
 .timeline { display: grid; grid-template-columns: .35fr .65fr; gap: 50px; min-height: 390px; padding-top: 34px; background: #ece7e0; }
 .timeline-intro h2 { font: 400 clamp(35px, 3.4vw, 52px)/.9 var(--serif); }
 .timeline-content { display: flex; flex-direction: column; justify-content: center; }
-.timeline-list { display: grid; grid-template-columns: repeat(4, 1fr); margin: 0; padding: 0; list-style: none; }
+.timeline-list { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; margin: 0; padding: 0; list-style: none; }
 .timeline-list li { position: relative; text-align: center; }
 .timeline-list li:not(:last-child)::after { content: "→"; position: absolute; right: -9px; top: 48px; color: var(--muted); font: 25px var(--serif); }
-.timeline-list time { display: block; margin-bottom: 12px; font-size: 10px; }
+.timeline-list time, .timeline-period { display: block; margin-bottom: 12px; font-size: 10px; }
 .timeline-icon { display: block; min-height: 42px; color: var(--accent); font: 32px/1 var(--serif); }
 .timeline-list p { font: 400 13px/1.18 var(--serif); }
 .timeline blockquote { margin: 24px auto 0; display: grid; grid-template-columns: 38px 1fr; max-width: 620px; color: #6a4a37; }
@@ -302,6 +319,13 @@ button { font: inherit; }
   .formation-step p { min-height: 46px; margin-bottom: 10px; font-size: 15px; }
   .formation-mark { width: 100%; max-width: none; }
   .formation-step:last-child { grid-column: 1 / -1; width: calc(50% - 9px); }
+  .credentials summary { gap: 12px; }
+  .credentials-toggle { gap: 10px; font-size: 9px; }
+  .credentials-list { grid-template-columns: 1fr; }
+  .credentials-list h3 { font-size: 23px; }
+  .languages { grid-template-columns: 1fr; gap: 20px; }
+  .languages ul { gap: 12px; }
+  .languages p { font-size: 22px; }
   .service-card { min-height: 340px; padding-top: 30px; }
   .current { min-height: 0; grid-template-columns: 1fr; gap: 30px; padding-top: 48px; padding-bottom: 44px; }
   .current-copy { width: 100%; }

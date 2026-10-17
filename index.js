@@ -30,7 +30,7 @@ desktopViewport.addEventListener('change', (event) => {
 });
 
 // Cada bloco de texto reage sem transformar novamente seus elementos internos.
-document.querySelectorAll('a:not(.skip-link), h1, h2, h3, h4, p:not(.current-aside), figcaption, time, cite, .section-index, .formation-mark, .service-number, .current-aside > span, .process-strip strong, .scroll-mark > span').forEach((element) => {
+document.querySelectorAll('a:not(.skip-link), h1, h2, h3, h4, p:not(.current-aside), figcaption, time, cite, summary, .timeline-period, .section-index, .formation-mark, .service-number, .current-aside > span, .process-strip strong, .scroll-mark > span').forEach((element) => {
   element.classList.add('text-hover');
 });
 
